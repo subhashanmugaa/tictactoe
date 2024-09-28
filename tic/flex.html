@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        #playerSymbol {
+            font-size: 24px;
+            padding: 10px;
+            border: 2px solid #007BFF;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        #status {
+            font-size: 24px;
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .parent {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin: 20px auto;
+            width: 300px; /* Fixed width for a consistent square layout */
+            aspect-ratio: 1; /* Ensures the grid stays square */
+        }
+
+        .cell {
+            border: 2px solid #007BFF;
+            background-color: #1e1e1e;
+            color: white;
+            height:40px;
+            width:10px;
+            padding: 40px;
+            font-size: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            border-radius: 10px; /* Rounded corners */
+        }
+
+        .cell:hover {
+            background-color: #007BFF;
+            transform: scale(1.05); /* Slightly enlarge on hover */
+        }
+
+        .cell.taken {
+            cursor: not-allowed; /* Indicate that the cell is taken */
+        }
+
+        .result {
+            font-size: 28px;
+            margin-top: 20px;
+            color: #007BFF;
+        }
+
+        input[type="submit"] {
+            font-size: 24px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        /* Toast notification styles */
+        .toast {
+            visibility: hidden;
+            min-width: 250px;
+            margin: auto;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 2px;
+            padding: 16px;
+            position: fixed;
+            z-index: 1;
+            left: 0; right: 0;
+            bottom: 30px;
+            font-size: 17px;
+            transition: visibility 0s, opacity 0.5s linear;
+            opacity: 0;
+        }
+
+        .toast.show {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tic Tac Toe</h1>
+    <p id="status">Enter Player 1's symbol:</p>
+    <input type="text" id="playerSymbol" placeholder="Enter 'X' or 'O'">
+    <input type="submit" id="cl" value="Start Game">
+    
+    <div class="parent">
+        <div class="cell" id="c1"></div>
+        <div class="cell" id="c2"></div>
+        <div class="cell" id="c3"></div>
+        <div class="cell" id="c4"></div>
+        <div class="cell" id="c5"></div>
+        <div class="cell" id="c6"></div>
+        <div class="cell" id="c7"></div>
+        <div class="cell" id="c8"></div>
+        <div class="cell" id="c9"></div>
+    </div>
+
+    <div class="result" id="result"></div>
+
+    <!-- Toast notification -->
+    <div id="toast" class="toast"></div>
+
+    <script src="tic.js"></script>
+</body>
+</html>
